@@ -8,22 +8,13 @@
  *
  * Main module of the application.
  */
-angular
-  .module('adressVerwaltungApp', [
-    'ngResource',
-    'ngRoute'
-  ])
-  .config(function ($routeProvider) {
+var adressApp = angular.module('adressVerwaltungApp', ['ngRoute'  ]);
+
+  adressApp.config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/adresse/:id', {
+        templateUrl: 'views/adress_anzeige.html',
+        controller: 'AdressAnzeigeCtrl',
       })
       .otherwise({
         redirectTo: '/'
