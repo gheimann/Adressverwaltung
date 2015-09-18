@@ -1,5 +1,7 @@
+'use strict';
+
 addressApp.controller("AddressDetailCtrl", function($scope, $http, $routeParams, $location, AddressDataService) {
-	var addressID = $routeParams.addressID
+	var addressID = $routeParams.addressID;
 	
 	AddressDataService.getAddressByAddressId(addressID).then(function(res) {
 		$scope.address = res.data;

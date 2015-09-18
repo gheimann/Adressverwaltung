@@ -1,3 +1,5 @@
+'use strict';
+
 addressApp.controller('AddressEditCtrl', function($scope, $routeParams,
 		$location, AddressDataService) {
 	$scope.isEditMode = true;
@@ -13,17 +15,18 @@ addressApp.controller('AddressEditCtrl', function($scope, $routeParams,
 
 	$scope.submitAction = function() {
 		$scope.jsonObj = angular.toJson($scope.address, false);
-		var id = $scope.address.id;
-		AddressDataService.updateAddress(addressId, $scope.jsonObj);
-		goToListView();
+		AddressDataService.updateAddress(addressId, $scope.jsonObj).then(function(res){
+      goToListView();
+    });
+
 	};
-	
+
 	$scope.cancelAction = function() {
 		goToListView();
 	};
-	
+
 	var goToListView = function() {
-		$location.path('/address');  
+		$location.path('/address');
 	};
 
 });

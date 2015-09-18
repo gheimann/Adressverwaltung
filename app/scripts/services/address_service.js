@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 addressApp.factory('AddressDataService', function($http) {
 
@@ -7,22 +7,21 @@ addressApp.factory('AddressDataService', function($http) {
   var baseUrl = 'http://localhost:8080';
 
 	srv.getAddressByAddressId = function(addressId) {
-		return $http.get(baseUrl + '/AdressVerwaltung/rest/address/element/'
-				+ addressId);
+		return $http.get(baseUrl + '/AdressVerwaltungServer/rest/address/element/' + addressId);
 	};
 
 	srv.getAddress = function() {
-		return $http.get(baseUrl + '/AdressVerwaltung/rest/address/list');
+		return $http.get(baseUrl + '/AdressVerwaltungServer/rest/address/list');
 	};
 
 	srv.storeAddress = function(address) {
-		return $http.post(baseUrl + '/AdressVerwaltung/rest/address/new', address);
+		return $http.post(baseUrl + '/AdressVerwaltungServer/rest/address/new', address);
 	};
 	srv.updateAddress = function(addressId, address) {
-		return $http.put(baseUrl + '/AdressVerwaltung/rest/address/update/' + addressId, address);
+		return $http.put(baseUrl + '/AdressVerwaltungServer/rest/address/update/' + addressId, address);
 	};
 	srv.deleteAddress = function(addressId) {
-		return $http.delete(baseUrl + '/AdressVerwaltung/rest/address/delete/' + addressId);
+		return $http.delete(baseUrl + '/AdressVerwaltungServer/rest/address/delete/' + addressId);
 
 	};
 
